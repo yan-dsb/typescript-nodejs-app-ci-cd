@@ -11,7 +11,7 @@ describe('CreateUserService', () => {
       name: 'user',
       email: 'user@mail.com',
     });
-    expect(user).toHaveProperty('id');
+    expect(user).toHaveProperty('uuid');
   });
 
   it('should not be able to create a new user with a e-mail that already exists', async () => {
@@ -22,7 +22,7 @@ describe('CreateUserService', () => {
     await createUser.execute({ name: 'user', email: 'user@mail.com' });
 
     await expect(
-      createUser.execute({ name: 'user', email: 'user2@mail.com' })
+      createUser.execute({ name: 'user', email: 'user@mail.com' })
     ).rejects.toBeInstanceOf(Error);
   });
 });
