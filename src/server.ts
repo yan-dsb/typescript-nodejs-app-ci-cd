@@ -10,6 +10,9 @@ app.use(express.json());
 
 app.use(routes);
 
+app.get('/', (_request: Request, response: Response) => {
+  return response.send('<h1>Hello World</h1>');
+});
 app.get('*', (_request: Request, response: Response) =>
   response.status(404).json({ message: 'not found' })
 );
