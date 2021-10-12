@@ -22,7 +22,7 @@ describe('CreateUserService', () => {
     await createUser.execute({ name: 'user', email: 'user@mail.com' });
 
     await expect(
-      createUser.execute({ name: 'user', email: 'user@mail.com' })
+      createUser.execute({ name: 'user', email: 'user2@mail.com' })
     ).rejects.toBeInstanceOf(Error);
   });
 });
