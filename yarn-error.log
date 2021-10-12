@@ -1,0 +1,33 @@
+Arguments: 
+  /usr/local/Cellar/node/15.10.0_1/bin/node /usr/local/bin/yarn add typescript -D
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/yan/.zinit/polaris/bin:/usr/local/opt/node/bin:/Users/yan/Android/Sdk/emulator:/Users/yan/Android/Sdk/tools:/Users/yan/Android/Sdk/tools/bin:/Users/yan/Android/Sdk/platform-tools:/usr/local/opt/node/bin:/Users/yan/Android/Sdk/emulator:/Users/yan/Android/Sdk/tools:/Users/yan/Android/Sdk/tools/bin:/Users/yan/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:69:26)
+
+npm manifest: 
+  {
+    "name": "aws-typescript-nodejs-demo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Yan Borges",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
