@@ -12,7 +12,7 @@ describe('ShowUserService', () => {
     const showUser = new ShowUserService(usersRepository);
 
     const user = await showUser.execute(userCreated.id);
-    expect(user).toHaveProperty('ide');
+    expect(user).toHaveProperty('id');
   });
 
   it('should not be able to show a user by id', async () => {
