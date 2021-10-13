@@ -10,6 +10,7 @@ module.exports = {
   "entities": [
     rootDir + "/entities/*{.ts,.js}"
   ],
+  "synchronize": process.env.NODE_ENV === "development",
   "migrations": [
     rootDir + "/database/typeorm/migrations/*{.ts,.js}"
   ],
