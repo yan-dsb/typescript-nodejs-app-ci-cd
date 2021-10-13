@@ -1,3 +1,4 @@
+import AppError from '../errors/AppError';
 import UsersRepository from '../repositories/fakes/UsersRepository';
 import CreateUserService from './CreateUserService';
 
@@ -32,6 +33,6 @@ describe('CreateUserService', () => {
         email: 'user@mail.com',
         password: 'password',
       })
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
