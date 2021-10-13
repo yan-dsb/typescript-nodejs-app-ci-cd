@@ -13,7 +13,7 @@ app.use(routes);
 const APP_VERSION = process.env.APP_VERSION || '0';
 
 app.get('/', (_request: Request, response: Response) => {
-  return response.send('<h1>Hello World</h1>');
+  return response.send('<h1>Hello Dev</h1>');
 });
 app.get('/version', (_request: Request, response: Response) =>
   response.json({ message: APP_VERSION })
