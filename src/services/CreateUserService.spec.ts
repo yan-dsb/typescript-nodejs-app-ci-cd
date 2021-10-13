@@ -1,4 +1,5 @@
-import UsersRepository from '../repositories/UsersRepository';
+import AppError from '../errors/AppError';
+import UsersRepository from '../repositories/fakes/UsersRepository';
 import CreateUserService from './CreateUserService';
 
 describe('CreateUserService', () => {
@@ -10,6 +11,7 @@ describe('CreateUserService', () => {
     const user = await createUser.execute({
       name: 'user',
       email: 'user@mail.com',
+      password: 'password',
     });
     expect(user).toHaveProperty('id');
   });
@@ -19,10 +21,18 @@ describe('CreateUserService', () => {
 
     const createUser = new CreateUserService(usersRepository);
 
-    await createUser.execute({ name: 'user', email: 'user@mail.com' });
+    await createUser.execute({
+      name: 'user',
+      email: 'user@mail.com',
+      password: 'password',
+    });
 
     await expect(
-      createUser.execute({ name: 'user', email: 'user@mail.com' })
-    ).rejects.toBeInstanceOf(Error);
+      createUser.execute({
+        name: 'user',
+        email: 'user@mail.com',
+        password: 'password',
+      })
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

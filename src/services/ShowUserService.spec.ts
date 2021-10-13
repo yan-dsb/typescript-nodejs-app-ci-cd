@@ -1,4 +1,5 @@
-import UsersRepository from '../repositories/UsersRepository';
+import AppError from '../errors/AppError';
+import UsersRepository from '../repositories/fakes/UsersRepository';
 import ShowUserService from './ShowUserService';
 
 describe('ShowUserService', () => {
@@ -8,6 +9,7 @@ describe('ShowUserService', () => {
     const userCreated = await usersRepository.create({
       name: 'user',
       email: 'email',
+      password: 'password',
     });
     const showUser = new ShowUserService(usersRepository);
 
@@ -20,6 +22,6 @@ describe('ShowUserService', () => {
 
     const showUser = new ShowUserService(usersRepository);
 
-    await expect(showUser.execute('user_id')).rejects.toBeInstanceOf(Error);
+    await expect(showUser.execute('user_id')).rejects.toBeInstanceOf(AppError);
   });
 });
