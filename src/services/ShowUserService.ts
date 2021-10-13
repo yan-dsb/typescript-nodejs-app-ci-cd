@@ -1,5 +1,6 @@
 import IUsersRespository from 'repositories/IUsersRepository';
 import User from 'entities/User';
+import AppError from '../errors/AppError';
 
 export default class ShowUserService {
   private usersRepository: IUsersRespository;
@@ -8,11 +9,11 @@ export default class ShowUserService {
     this.usersRepository = usersRepository;
   }
 
-  async execute(id: string): Promise<User> {
+  public async execute(id: string): Promise<User> {
     const user = await this.usersRepository.findByID(id);
 
     if (!user) {
-      throw new Error('User not found');
+      throw new AppError('User not found', 404);
     }
 
     return user;

@@ -1,4 +1,4 @@
-import UsersRepository from '../repositories/UsersRepository';
+import UsersRepository from '../repositories/fakes/UsersRepository';
 import ShowUserService from './ShowUserService';
 
 describe('ShowUserService', () => {
@@ -8,6 +8,7 @@ describe('ShowUserService', () => {
     const userCreated = await usersRepository.create({
       name: 'user',
       email: 'email',
+      password: 'password',
     });
     const showUser = new ShowUserService(usersRepository);
 

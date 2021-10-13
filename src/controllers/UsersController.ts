@@ -1,38 +1,29 @@
 import { Request, Response } from 'express';
-import UsersRepository from '../repositories/UsersRepository';
+import UsersRepository from '../repositories/implementations/typeorm/UsersRepository';
 import CreateUserService from '../services/CreateUserService';
 import ShowUserService from '../services/ShowUserService';
 
-const usersRepository = new UsersRepository();
-
 export default class UsersController {
   async create(request: Request, response: Response): Promise<Response> {
-    const { name, email } = request.body;
-    try {
-      const createUser = new CreateUserService(usersRepository);
+    const { name, email, password } = request.body;
+    const usersRepository = new UsersRepository();
 
-      const user = await createUser.execute({ name, email });
+    const createUser = new CreateUserService(usersRepository);
 
-      return response.json(user);
-    } catch (error) {
-      const err = error as Error;
+    const user = await createUser.execute({ name, email, password });
 
-      return response.status(400).json({ message: err.message });
-    }
+    return response.json(user);
   }
 
   async show(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    try {
-      const showUser = new ShowUserService(usersRepository);
+    const usersRepository = new UsersRepository();
 
-      const user = await showUser.execute(id);
+    const showUser = new ShowUserService(usersRepository);
 
-      return response.json(user);
-    } catch (error) {
-      const err = error as Error;
-      return response.status(404).json({ message: err.message });
-    }
+    const user = await showUser.execute(id);
+
+    return response.json(user);
   }
 }
