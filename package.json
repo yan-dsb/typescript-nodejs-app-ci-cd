@@ -9,8 +9,7 @@
     "dev:server": "ts-node-dev --respawn ./src/server.ts --transpile-only --inspect",
     "test": "jest",
     "start": "node dist/server.js",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "migration": "./node_modules/typeorm/cli.js migration:run"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

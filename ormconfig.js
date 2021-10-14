@@ -1,6 +1,5 @@
 const rootDir = process.env.NODE_ENV === "development" ? "src" : "dist";
 
-console.log(rootDir);
 module.exports = {
   "name": "default",
   "type": process.env.DB_TYPE,
@@ -12,6 +11,7 @@ module.exports = {
   "entities": [
     rootDir + "/entities/*{.ts,.js}"
   ],
+  "migrationsRun": !(process.env.NODE_ENV === "development"),
   "synchronize": process.env.NODE_ENV === "development",
   "migrations": [
     rootDir + "/database/typeorm/migrations/*{.ts,.js}"
