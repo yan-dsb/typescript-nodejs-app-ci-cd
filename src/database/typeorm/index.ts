@@ -2,8 +2,8 @@ import { createConnection } from 'typeorm';
 
 createConnection()
   .then(conn => {
-    console.log('Database driver', conn.driver);
+    console.log('Database connection established', conn.driver.database);
   })
   .catch(err => {
-    console.log('Database connection established', err);
+    console.log('Error establishing database connection', err);
   });
