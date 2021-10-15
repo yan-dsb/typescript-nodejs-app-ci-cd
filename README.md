@@ -14,7 +14,8 @@ O workflow integrate.yml (CI) vai fazer testar e se tiver tudo ok, vai liberar a
 Em Settings -> Secrets (nas configurações do repositório), adicionar as seguintes variváveis pra acesssar a instância na AWS.
 - AWS_ACCESS_KEY<br>
 - AWS_SECRET_KEY<br>
-Os valores das duas variáveis podem ser criadas na AWS, <a href="https://docs.aws.amazon.com/pt_br/IAM/latest/UserGuide/id_users_create.html" >link</a> explicando como isso pode ser feito.
+
+*Os valores das duas variáveis podem ser criadas na AWS, <a href="https://docs.aws.amazon.com/pt_br/IAM/latest/UserGuide/id_users_create.html" >link</a> explicando como isso pode ser feito.
 
 ## Usar o banco de dados na aplicação da instância (RDS ou qualquer banco de dados que possa ser acessado remotamente)
 
